@@ -4,13 +4,25 @@
  * and open the template in the editor.
  */
 
-
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import org.imgscalr.Scalr;
 
 /**
  *
@@ -34,6 +46,7 @@ public class AddModules extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        filechooser = new javax.swing.JFileChooser();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -55,7 +68,7 @@ public class AddModules extends javax.swing.JFrame {
         e = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         b = new javax.swing.JComboBox<>();
-        jLabel9 = new javax.swing.JLabel();
+        pic = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setSize(new java.awt.Dimension(800, 600));
@@ -219,8 +232,8 @@ public class AddModules extends javax.swing.JFrame {
         b.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tea cup", "Mug", "T-Shirt", "Watch" }));
         getContentPane().add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 150, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/onlinegift/download (2).jpg"))); // NOI18N
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 220, 220));
+        pic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/download (2).jpg"))); // NOI18N
+        getContentPane().add(pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 220, 220));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -238,25 +251,62 @@ public class AddModules extends javax.swing.JFrame {
     }//GEN-LAST:event_fActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       try {
-         
-            Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
+        File SourceFile, myfile = null;
+        SourceFile = filechooser.getSelectedFile();
+        try {
+            if (!Files.exists(Paths.get("C:\\wamp\\www\\Eshopper\\images\\"))) {
+
+                new File("C:\\wamp\\www\\Eshopper\\images\\").mkdir();
+            }
+            myfile = new File("C:\\wamp\\www\\Eshopper\\images\\" + a.getText() + ".jpg");
+            System.out.println(myfile.getPath());
+        } catch (NullPointerException ex) {
+            Logger.getLogger(AddModules.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+
+            if (!SourceFile.exists()) {
+                System.out.println("Sourcefile doesn't Exist");
+            }
+            if (!myfile.exists()) {
+                myfile.createNewFile();
+            }
+            FileChannel source;
+            FileChannel destination;
+            source = new FileInputStream(SourceFile).getChannel();
+            destination = new FileOutputStream(myfile).getChannel();
+            if (destination != null && source != null) {
+                destination.transferFrom(source, 0, source.size());
+            }
+            if (source != null) {
+                source.close();
+            }
+            if (destination != null) {
+                destination.close();
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(AddModules.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
             System.err.println("ok");
-            Statement s=c.createStatement();
-            s.executeUpdate("insert into product(productname,category,prize,quantity,model,color,size)"
-                    + "values('"+a.getText()+"','"+b.getSelectedItem()+"',"+c2.getText()+",'"+g.getText()+"','"+d.getText()+"','"+e.getText()+"','"+f.getText()+"');");
+            Statement s = c.createStatement();
+            s.executeUpdate("insert into product(productname,category,prize,quantity,model,color,size,IMAGE)"
+                    + "values('" + a.getText() + "','" + b.getSelectedItem() + "'," + c2.getText() + ",'" + g.getText() + "','" + d.getText() + "','" + e.getText() + "','" + f.getText() + "','" + myfile.getName() + "');");
             //return true;
-           
-            
+
         } catch (SQLException ex) {
             System.out.println("not ok");
             Logger.getLogger(AddModules.class.getName()).log(Level.SEVERE, null, ex);
-           // return false;
+            // return false;
         } // TODO add your handling code here: // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Dashboard hh=new Dashboard();
+        Dashboard hh = new Dashboard();
         hh.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -273,6 +323,33 @@ public class AddModules extends javax.swing.JFrame {
     }//GEN-LAST:event_eActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        filechooser.setDialogTitle("Choose Your Photo");
+        filechooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        filechooser.addChoosableFileFilter(new FileNameExtensionFilter("Images", "jpg", "png", "PNG", "JPG"));
+        //filechooser.setAcceptAllFileFilterUsed(true);
+        filechooser.setCurrentDirectory(new File("C:\\Users\\Public\\Pictures"));
+
+        //below codes for select  the file
+        int returnval = filechooser.showOpenDialog(this);
+        if (returnval == JFileChooser.APPROVE_OPTION) {
+            File source = filechooser.getSelectedFile();
+
+            try {
+                BufferedImage bi = ImageIO.read(source);
+
+                System.out.println("Height : " + bi.getHeight());
+                System.out.println("Width : " + bi.getWidth());
+                //---Resizing buffered image; return : bufferedimage -----
+                bi = Scalr.resize(bi, 350, 180);
+                pic.setIcon(new ImageIcon(bi));
+
+                System.out.println(source);
+
+            } catch (IOException e) {
+            }
+            this.pack();
+        }        // TODO add your handling code here:
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -317,6 +394,7 @@ public class AddModules extends javax.swing.JFrame {
     private javax.swing.JTextField d;
     private javax.swing.JTextField e;
     private javax.swing.JTextField f;
+    private javax.swing.JFileChooser filechooser;
     private javax.swing.JTextField g;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -330,8 +408,8 @@ public class AddModules extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel pic;
     // End of variables declaration//GEN-END:variables
 }
