@@ -36,7 +36,7 @@ public class ViewModel extends javax.swing.JFrame {
             while (r.next()) {
                 // System.out.println(r.getString("c1")+" "+r.getString("c2")+" "+r.getString("c3"));
                 Vector v = new Vector();
-
+                v.add(r.getString("id")); 
                 v.add(r.getString("productname"));
                 v.add(r.getString("category"));
                 v.add(r.getString("prize"));
@@ -114,14 +114,14 @@ public class ViewModel extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Product.Name", "Category", "PRICE", "QUANTIT", "Model", "color", "size"
+                "id", "Product.Name", "Category", "PRICE", "QUANTIT", "Model", "color", "size"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, true, true, true
+                true, true, false, false, false, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -200,7 +200,7 @@ public class ViewModel extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTable11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable11MouseClicked
-        ModelDetails m = new ModelDetails();
+        ModelDetails m = new ModelDetails(jTable11.getValueAt(jTable11.getSelectedRow(), 0).toString());
         m.setVisible(true);
         this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jTable11MouseClicked
