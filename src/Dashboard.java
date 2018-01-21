@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-
 /**
  *
  * @author krishnapradeep
@@ -158,7 +157,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         ViewModel v = new ViewModel();
-       v.setVisible(true);// TODO add your handling code here:
+        v.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -178,9 +177,9 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-Login l1=new Login();
-l1.setVisible(true);
-this.dispose();
+        Login l1 = new Login();
+        l1.setVisible(true);
+        this.dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -211,7 +210,7 @@ this.dispose();
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        
+
         //</editor-fold>
         //</editor-fold>
 
