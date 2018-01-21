@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -26,35 +25,35 @@ public class viewOrder extends javax.swing.JFrame {
      */
     public viewOrder() {
         initComponents();
-        
+
         try {
-          
-            Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
+
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
             System.err.println("ok");
-            Statement s=c.createStatement();
-          
-            ResultSet r=s.executeQuery("select * from orders ");
-                     DefaultTableModel de=(DefaultTableModel)jTable1.getModel();
-            while(r.next())
-            {
-               // System.out.println(r.getString("c1")+" "+r.getString("c2")+" "+r.getString("c3"));
-                Vector v=new Vector();
-         v.add("");
-         v.add(r.getString("odate"));
-         v.add(r.getString("expecteddate"));
-         v.add(r.getString("quantity"));
-         v.add(r.getString("amount"));
-         v.add(r.getString("customer_id"));
-         v.add(r.getString("remarks"));
-         de.addRow(v);
+            Statement s = c.createStatement();
+
+            ResultSet r = s.executeQuery("select * from orders ");
+            DefaultTableModel de = (DefaultTableModel) jTable1.getModel();
+            while (r.next()) {
+                // System.out.println(r.getString("c1")+" "+r.getString("c2")+" "+r.getString("c3"));
+                Vector v = new Vector();
+            
+                 v.add(r.getString("id"));
+                v.add(r.getString("odate"));
+                v.add(r.getString("expecteddate"));
+                v.add(r.getString("quantity"));
+                v.add(r.getString("amount"));
+                v.add(r.getString("customer_id"));
+                v.add(r.getString("remarks"));
+                de.addRow(v);
 
             }
-            
+
         } catch (SQLException ex) {
             System.out.println("not ok");
             Logger.getLogger(viewOrder.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
+
     }
 
     /**
@@ -179,9 +178,9 @@ public class viewOrder extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-delivery d1=new delivery();
-d1.setVisible(true);
-this.dispose();// TODO add your handling code here:
+        delivery d1 = new delivery(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+        d1.setVisible(true);
+        this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**

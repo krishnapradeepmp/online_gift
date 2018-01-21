@@ -1,3 +1,14 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,8 +25,36 @@ public class delivery extends javax.swing.JFrame {
     /**
      * Creates new form delivery
      */
-    public delivery() {
+    public delivery(String id) {
         initComponents();
+        try {
+
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
+            System.err.println("ok");
+            Statement s = c.createStatement();
+
+            ResultSet r = s.executeQuery("select * from orders where id="+id);
+           // DefaultTableModel de = (DefaultTableModel) jTable1.getModel();
+            while (r.next()) {
+                // System.out.println(r.getString("c1")+" "+r.getString("c2")+" "+r.getString("c3"));
+                //Vector v = new Vector();
+            
+                 a3.setText(r.getString("id"));
+              /*  v.add(r.getString("odate"));
+                v.add(r.getString("expecteddate"));
+                v.add(r.getString("quantity"));
+                v.add(r.getString("amount"));
+                v.add(r.getString("customer_id"));
+                v.add(r.getString("remarks"));
+                de.addRow(v);
+*/
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("not ok");
+            Logger.getLogger(viewOrder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     /**
@@ -36,7 +75,7 @@ public class delivery extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        a3 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -110,7 +149,7 @@ public class delivery extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Customer_ID");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 121, 127, 25));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 78, 98, 25));
+        getContentPane().add(a3, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 78, 98, 25));
 
         jButton3.setText("SAVE");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -185,43 +224,9 @@ public class delivery extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField9ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(delivery.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(delivery.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(delivery.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(delivery.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new delivery().setVisible(true);
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField a3;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -238,7 +243,6 @@ public class delivery extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;

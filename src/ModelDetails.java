@@ -1,4 +1,7 @@
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -7,15 +10,16 @@ import java.sql.Statement;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
+import org.imgscalr.Scalr;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 /**
  *
  * @author krishnapradeep
@@ -27,26 +31,36 @@ public class ModelDetails extends javax.swing.JFrame {
      */
     public ModelDetails(String id) {
         initComponents();
-         try {
+        try {
 
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
             System.err.println("ok");
             Statement s = c.createStatement();
 
-            ResultSet r = s.executeQuery("select * from product where id="+id);
-           
+            ResultSet r = s.executeQuery("select * from product where id=" + id);
+
             while (r.next()) {
                 // System.out.println(r.getString("c1")+" "+r.getString("c2")+" "+r.getString("c3"));
-                
-                 
+
                 a1.setText(r.getString("productname"));
-               /* v.add(r.getString("category"));
+                /* v.add(r.getString("category"));
                 v.add(r.getString("prize"));
                 v.add(r.getString("quantity"));
                 v.add(r.getString("model"));
                 v.add(r.getString("color"));
                 v.add(r.getString("size"));
                 de.addRow(v);*/
+                try {
+                    BufferedImage bi = ImageIO.read(new File("C:\\wamp\\www\\Eshopper\\images\\" + r.getString("IMAGE")));
+
+                    System.out.println("Height : " + bi.getHeight());
+                    System.out.println("Width : " + bi.getWidth());
+                    //---Resizing buffered image; return : bufferedimage -----
+                    bi = Scalr.resize(bi, 350, 180);
+                    image.setIcon(new ImageIcon(bi));
+
+                } catch (IOException e) {
+                }
 
             }
 
@@ -85,7 +99,7 @@ public class ModelDetails extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        image = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -182,8 +196,8 @@ public class ModelDetails extends javax.swing.JFrame {
         getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 150, -1));
         getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 150, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mug.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 600, 440));
+        image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mug.jpg"))); // NOI18N
+        getContentPane().add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 600, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -198,11 +212,11 @@ public class ModelDetails extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField a1;
+    private javax.swing.JLabel image;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JFileChooser jFileChooser1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
