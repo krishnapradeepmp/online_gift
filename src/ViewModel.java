@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -27,35 +26,33 @@ public class ViewModel extends javax.swing.JFrame {
     public ViewModel() {
         initComponents();
         try {
-          
-            Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
+
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
             System.err.println("ok");
-            Statement s=c.createStatement();
-          
-            ResultSet r=s.executeQuery("select * from product ");
-                     DefaultTableModel de=(DefaultTableModel)jTable11.getModel();
-            while(r.next())
-            {
-               // System.out.println(r.getString("c1")+" "+r.getString("c2")+" "+r.getString("c3"));
-                Vector v=new Vector();
-        
-         v.add(r.getString("productname"));
-         v.add(r.getString("category"));
-         v.add(r.getString("prize"));
-         v.add(r.getString("quantity"));
-         v.add(r.getString("model"));
-         v.add(r.getString("color"));
-         v.add(r.getString("size"));
-         de.addRow(v);
+            Statement s = c.createStatement();
+
+            ResultSet r = s.executeQuery("select * from product ");
+            DefaultTableModel de = (DefaultTableModel) jTable11.getModel();
+            while (r.next()) {
+                // System.out.println(r.getString("c1")+" "+r.getString("c2")+" "+r.getString("c3"));
+                Vector v = new Vector();
+
+                v.add(r.getString("productname"));
+                v.add(r.getString("category"));
+                v.add(r.getString("prize"));
+                v.add(r.getString("quantity"));
+                v.add(r.getString("model"));
+                v.add(r.getString("color"));
+                v.add(r.getString("size"));
+                de.addRow(v);
 
             }
-            
+
         } catch (SQLException ex) {
             System.out.println("not ok");
             Logger.getLogger(ViewModel.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
-    
+
     }
 
     /**
@@ -203,9 +200,9 @@ public class ViewModel extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTable11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable11MouseClicked
-ModelDetails m=new ModelDetails();
-m.setVisible(true);
-this.dispose();// TODO add your handling code here:
+        ModelDetails m = new ModelDetails();
+        m.setVisible(true);
+        this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jTable11MouseClicked
 
     /**
