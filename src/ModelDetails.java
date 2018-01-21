@@ -31,6 +31,49 @@ public class ModelDetails extends javax.swing.JFrame {
      */
     public ModelDetails(String id) {
         initComponents();
+
+/*category-listing code*/
+        try {
+
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
+            System.err.println("ok");
+            Statement s = c.createStatement();
+
+            ResultSet r = s.executeQuery("select * from category");
+
+            while (r.next()) {
+                // System.out.println(r.getString("c1")+" "+r.getString("c2")+" "+r.getString("c3"));
+
+                b1.addItem(r.getString("category_name"));
+                /* v.add(r.getString("category"));
+                v.add(r.getString("prize"));
+                v.add(r.getString("quantity"));
+                v.add(r.getString("model"));
+                v.add(r.getString("color"));
+                v.add(r.getString("size"));
+                de.addRow(v);*/
+//                try {
+//                    BufferedImage bi = ImageIO.read(new File("C:\\wamp\\www\\Eshopper\\images\\" + r.getString("IMAGE")));
+//
+//                    System.out.println("Height : " + bi.getHeight());
+//                    System.out.println("Width : " + bi.getWidth());
+//                    //---Resizing buffered image; return : bufferedimage -----
+//                    bi = Scalr.resize(bi, 350, 180);
+//                    image.setIcon(new ImageIcon(bi));
+//
+//                } catch (IOException e) {
+//                }
+
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("not ok");
+            Logger.getLogger(ViewModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+
+
         try {
 
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
@@ -43,8 +86,8 @@ public class ModelDetails extends javax.swing.JFrame {
                 // System.out.println(r.getString("c1")+" "+r.getString("c2")+" "+r.getString("c3"));
 
                 a1.setText(r.getString("productname"));
-                /* v.add(r.getString("category"));
-                v.add(r.getString("prize"));
+                 b1.setSelectedItem(r.getString("category"));
+                /*v.add(r.getString("prize"));
                 v.add(r.getString("quantity"));
                 v.add(r.getString("model"));
                 v.add(r.getString("color"));
@@ -90,7 +133,7 @@ public class ModelDetails extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        b1 = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -164,13 +207,12 @@ public class ModelDetails extends javax.swing.JFrame {
         jLabel8.setText("Color");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 140, 30));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Category" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        b1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                b1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 150, -1));
+        getContentPane().add(b1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 150, -1));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 90, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 153, 153));
@@ -206,16 +248,16 @@ public class ModelDetails extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_a1ActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_b1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField a1;
+    private javax.swing.JComboBox<String> b1;
     private javax.swing.JLabel image;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

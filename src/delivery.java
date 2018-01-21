@@ -33,21 +33,23 @@ public class delivery extends javax.swing.JFrame {
             System.err.println("ok");
             Statement s = c.createStatement();
 
-            ResultSet r = s.executeQuery("select * from orders where id="+id);
+            ResultSet r = s.executeQuery("SELECT orders.`id`, `odate`, `expecteddate`, `remarks`, `status`, `model_id`, `quantity`, `customer_id`, `amount`,daddress,delivery_name FROM `orders`,delivery WHERE delivery.order_id=orders.id AND orders.id="+id);
            // DefaultTableModel de = (DefaultTableModel) jTable1.getModel();
             while (r.next()) {
                 // System.out.println(r.getString("c1")+" "+r.getString("c2")+" "+r.getString("c3"));
                 //Vector v = new Vector();
             
                  a3.setText(r.getString("id"));
-              /*  v.add(r.getString("odate"));
-                v.add(r.getString("expecteddate"));
-                v.add(r.getString("quantity"));
-                v.add(r.getString("amount"));
-                v.add(r.getString("customer_id"));
-                v.add(r.getString("remarks"));
-                de.addRow(v);
-*/
+                o3.setText(r.getString("odate"));
+                ed3.setText(r.getString("expecteddate"));
+                b3.setText(r.getString("quantity"));
+                e3.setText(r.getString("amount"));
+                c3.setText(r.getString("customer_id"));
+                 f3.setText(r.getString("daddress"));
+                  d3.setText(r.getString("delivery_name"));
+                //v.add(r.getString("remarks"));
+                //de.addRow(v);
+
             }
 
         } catch (SQLException ex) {
@@ -68,26 +70,25 @@ public class delivery extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        image2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        ed3 = new javax.swing.JTextField();
+        f3 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         a3 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        b3 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        c3 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        d3 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        e3 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        o3 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -116,25 +117,25 @@ public class delivery extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, -1));
 
-        jTextField1.setText("CUSTOMIZED IMAGE");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        image2.setText("CUSTOMIZED IMAGE");
+        image2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                image2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 130, 335, 194));
+        getContentPane().add(image2, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 130, 335, 194));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Delivery_Name");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 213, 127, 25));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        ed3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                ed3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(779, 565, 131, 25));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, 183, 98));
+        getContentPane().add(ed3, new org.netbeans.lib.awtextra.AbsoluteConstraints(779, 565, 131, 25));
+        getContentPane().add(f3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, 183, 98));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 102, 0));
@@ -151,14 +152,6 @@ public class delivery extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 121, 127, 25));
         getContentPane().add(a3, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 78, 98, 25));
 
-        jButton3.setText("SAVE");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 354, 96, 34));
-
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("DELIVERY ADDRESS");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 166, 24));
@@ -166,70 +159,72 @@ public class delivery extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Order_ID");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 76, 127, 25));
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 123, 98, 25));
+        getContentPane().add(b3, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 123, 98, 25));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Quantity");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 166, 127, 25));
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 168, 98, 25));
+        getContentPane().add(c3, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 168, 98, 25));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Exp.Delivery_Date");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 563, 127, 25));
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        d3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                d3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 215, 271, 25));
+        getContentPane().add(d3, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 215, 271, 25));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Amount");
         jLabel9.setToolTipText("");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 127, 25));
-        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 260, 98, 25));
+        getContentPane().add(e3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 260, 98, 25));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("Order Date");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 565, 127, 25));
 
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        o3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                o3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 565, 131, 25));
+        getContentPane().add(o3, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 565, 131, 25));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void image2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_image2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_image2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void d3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_d3ActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void ed3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ed3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_ed3ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void o3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_o3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_o3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField a3;
+    private javax.swing.JTextField b3;
+    private javax.swing.JTextField c3;
+    private javax.swing.JTextField d3;
+    private javax.swing.JTextField e3;
+    private javax.swing.JTextField ed3;
+    private javax.swing.JTextField f3;
+    private javax.swing.JTextField image2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -240,13 +235,6 @@ public class delivery extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField o3;
     // End of variables declaration//GEN-END:variables
 }
