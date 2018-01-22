@@ -180,7 +180,7 @@ public class viewOrder extends javax.swing.JFrame {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         delivery d1 = new delivery(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
         d1.setVisible(true);
-        this.dispose();// TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**

@@ -87,12 +87,12 @@ public class ModelDetails extends javax.swing.JFrame {
 
                 a1.setText(r.getString("productname"));
                  b1.setSelectedItem(r.getString("category"));
-                /*v.add(r.getString("prize"));
-                v.add(r.getString("quantity"));
-                v.add(r.getString("model"));
-                v.add(r.getString("color"));
-                v.add(r.getString("size"));
-                de.addRow(v);*/
+                c1.setText(r.getString("prize"));
+                d1.setText(r.getString("quantity"));
+                e1.setText(r.getString("model"));
+                f1.setText(r.getString("color"));
+                g1.setText(r.getString("size"));
+               // de.addRow(v);
                 try {
                     BufferedImage bi = ImageIO.read(new File("C:\\wamp\\www\\Eshopper\\images\\" + r.getString("IMAGE")));
 
@@ -134,14 +134,14 @@ public class ModelDetails extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         b1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        g1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         a1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        c1 = new javax.swing.JTextField();
+        d1 = new javax.swing.JTextField();
+        e1 = new javax.swing.JTextField();
+        f1 = new javax.swing.JTextField();
         image = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -213,7 +213,7 @@ public class ModelDetails extends javax.swing.JFrame {
             }
         });
         getContentPane().add(b1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 150, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 90, -1));
+        getContentPane().add(g1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 90, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 153, 153));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -233,10 +233,10 @@ public class ModelDetails extends javax.swing.JFrame {
             }
         });
         getContentPane().add(a1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 150, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 90, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 150, -1));
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 150, -1));
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 150, -1));
+        getContentPane().add(c1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 90, -1));
+        getContentPane().add(d1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 150, -1));
+        getContentPane().add(e1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 150, -1));
+        getContentPane().add(f1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 150, -1));
 
         image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mug.jpg"))); // NOI18N
         getContentPane().add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 600, 440));
@@ -255,6 +255,11 @@ public class ModelDetails extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField a1;
     private javax.swing.JComboBox<String> b1;
+    private javax.swing.JTextField c1;
+    private javax.swing.JTextField d1;
+    private javax.swing.JTextField e1;
+    private javax.swing.JTextField f1;
+    private javax.swing.JTextField g1;
     private javax.swing.JLabel image;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -268,10 +273,5 @@ public class ModelDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }

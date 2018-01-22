@@ -1,4 +1,7 @@
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -7,15 +10,16 @@ import java.sql.Statement;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
+import org.imgscalr.Scalr;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 /**
  *
  * @author krishnapradeep
@@ -33,22 +37,34 @@ public class delivery extends javax.swing.JFrame {
             System.err.println("ok");
             Statement s = c.createStatement();
 
-            ResultSet r = s.executeQuery("SELECT orders.`id`, `odate`, `expecteddate`, `remarks`, `status`, `model_id`, `quantity`, `customer_id`, `amount`,daddress,delivery_name FROM `orders`,delivery WHERE delivery.order_id=orders.id AND orders.id="+id);
-           // DefaultTableModel de = (DefaultTableModel) jTable1.getModel();
+            ResultSet r = s.executeQuery("SELECT orders.`id`, `odate`, `expecteddate`, `remarks`, `status`, `model_id`, `quantity`, `customer_id`, `amount`,daddress,delivery_name FROM `orders`,delivery WHERE delivery.order_id=orders.id AND orders.id=" + id);
+            // DefaultTableModel de = (DefaultTableModel) jTable1.getModel();
             while (r.next()) {
                 // System.out.println(r.getString("c1")+" "+r.getString("c2")+" "+r.getString("c3"));
                 //Vector v = new Vector();
-            
-                 a3.setText(r.getString("id"));
+
+                a3.setText(r.getString("id"));
                 o3.setText(r.getString("odate"));
                 ed3.setText(r.getString("expecteddate"));
                 b3.setText(r.getString("quantity"));
                 e3.setText(r.getString("amount"));
                 c3.setText(r.getString("customer_id"));
-                 f3.setText(r.getString("daddress"));
-                  d3.setText(r.getString("delivery_name"));
+                f3.setText(r.getString("daddress"));
+                d3.setText(r.getString("delivery_name"));
                 //v.add(r.getString("remarks"));
                 //de.addRow(v);
+                /*............image preview..*/
+                try {
+                    BufferedImage bi = ImageIO.read(new File("C:\\wamp\\www\\Eshopper\\images\\" + r.getString("IMAGE")));
+
+                    System.out.println("Height : " + bi.getHeight());
+                    System.out.println("Width : " + bi.getWidth());
+                    //---Resizing buffered image; return : bufferedimage -----
+                    bi = Scalr.resize(bi, 350, 180);
+                    image2.setIcon(new ImageIcon(bi));
+
+                } catch (IOException e) {
+                }
 
             }
 
@@ -70,7 +86,6 @@ public class delivery extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        image2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         ed3 = new javax.swing.JTextField();
         f3 = new javax.swing.JTextField();
@@ -89,6 +104,7 @@ public class delivery extends javax.swing.JFrame {
         e3 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         o3 = new javax.swing.JTextField();
+        image2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -116,14 +132,6 @@ public class delivery extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, -1));
-
-        image2.setText("CUSTOMIZED IMAGE");
-        image2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                image2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(image2, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 130, 335, 194));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Delivery_Name");
@@ -194,12 +202,11 @@ public class delivery extends javax.swing.JFrame {
         });
         getContentPane().add(o3, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 565, 131, 25));
 
+        image2.setText("jLabel4");
+        getContentPane().add(image2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 400, 270));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void image2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_image2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_image2ActionPerformed
 
     private void d3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d3ActionPerformed
         // TODO add your handling code here:
@@ -222,7 +229,7 @@ public class delivery extends javax.swing.JFrame {
     private javax.swing.JTextField e3;
     private javax.swing.JTextField ed3;
     private javax.swing.JTextField f3;
-    private javax.swing.JTextField image2;
+    private javax.swing.JLabel image2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

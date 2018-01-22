@@ -202,7 +202,8 @@ public class ViewModel extends javax.swing.JFrame {
     private void jTable11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable11MouseClicked
         ModelDetails m = new ModelDetails(jTable11.getValueAt(jTable11.getSelectedRow(), 0).toString());
         m.setVisible(true);
-        this.dispose();// TODO add your handling code here:
+      
+// TODO add your handling code here:
     }//GEN-LAST:event_jTable11MouseClicked
 
     /**
