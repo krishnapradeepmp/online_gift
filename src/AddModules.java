@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import java.awt.Component;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
@@ -21,6 +22,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import org.imgscalr.Scalr;
 
@@ -189,7 +191,7 @@ public class AddModules extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 210, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 340, 210, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 153, 204));
@@ -232,8 +234,8 @@ public class AddModules extends javax.swing.JFrame {
         b.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tea cup", "Mug", "T-Shirt", "Watch" }));
         getContentPane().add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 150, -1));
 
-        pic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/download (2).jpg"))); // NOI18N
-        getContentPane().add(pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 220, 220));
+        pic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/downloadd.png"))); // NOI18N
+        getContentPane().add(pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, 290, 220));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -263,7 +265,32 @@ public class AddModules extends javax.swing.JFrame {
         } catch (NullPointerException ex) {
             Logger.getLogger(AddModules.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+if(a.getText().isEmpty())
+{
+         
+    JOptionPane.showMessageDialog(rootPane,"Plz Enter Product Name");
+}
+else if(c2.getText().isEmpty())
+{
+    JOptionPane.showMessageDialog(rootPane, "Please Enter Prize");
+}
+else if(d.getText().isEmpty())
+{
+    JOptionPane.showMessageDialog(rootPane, "Please Enter Model");
+}
+else if(e.getText().isEmpty())
+{
+    JOptionPane.showMessageDialog(rootPane, "Please Specify Color");
+}
+else if(f.getText().isEmpty())
+{
+    JOptionPane.showMessageDialog(rootPane, "Please Fill the 'Size' field");
+}
+else if(g.getText().isEmpty())
+{
+    JOptionPane.showMessageDialog(rootPane, "Please Enter Quantity");
+}
+else{
         try {
 
             if (!SourceFile.exists()) {
@@ -302,7 +329,8 @@ public class AddModules extends javax.swing.JFrame {
             System.out.println("not ok");
             Logger.getLogger(AddModules.class.getName()).log(Level.SEVERE, null, ex);
             // return false;
-        } // TODO add your handling code here: // TODO add your handling code here:
+        }
+}// TODO add your handling code here: // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
