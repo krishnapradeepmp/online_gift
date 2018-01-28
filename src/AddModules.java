@@ -15,6 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -32,11 +33,33 @@ import org.imgscalr.Scalr;
  */
 public class AddModules extends javax.swing.JFrame {
 
+    private int flag_image = 0;
+
     /**
      * Creates new form AddModules
      */
     public AddModules() {
         initComponents();
+        try {
+
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
+            System.err.println("ok");
+            Statement s = c.createStatement();
+
+            ResultSet r = s.executeQuery("select * from category");
+
+            while (r.next()) {
+                // System.out.println(r.getString("c1")+" "+r.getString("c2")+" "+r.getString("c3"));
+
+                b.addItem(r.getString("category_name"));
+
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("not ok");
+            Logger.getLogger(ViewModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     /**
@@ -231,7 +254,7 @@ public class AddModules extends javax.swing.JFrame {
 
         b.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         b.setForeground(new java.awt.Color(0, 153, 204));
-        b.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tea cup", "Mug", "T-Shirt", "Watch" }));
+        b.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Category" }));
         getContentPane().add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 150, -1));
 
         pic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/downloadd.png"))); // NOI18N
@@ -253,84 +276,78 @@ public class AddModules extends javax.swing.JFrame {
     }//GEN-LAST:event_fActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        File SourceFile, myfile = null;
-        SourceFile = filechooser.getSelectedFile();
-        try {
-            if (!Files.exists(Paths.get("C:\\wamp\\www\\Eshopper\\images\\"))) {
 
-                new File("C:\\wamp\\www\\Eshopper\\images\\").mkdir();
-            }
-            myfile = new File("C:\\wamp\\www\\Eshopper\\images\\" + a.getText() + ".jpg");
-            System.out.println(myfile.getPath());
-        } catch (NullPointerException ex) {
-            Logger.getLogger(AddModules.class.getName()).log(Level.SEVERE, null, ex);
-        }
-if(a.getText().isEmpty())
-{
-         
-    JOptionPane.showMessageDialog(rootPane,"Plz Enter Product Name");
-}
-else if(c2.getText().isEmpty())
-{
-    JOptionPane.showMessageDialog(rootPane, "Please Enter Prize");
-}
-else if(d.getText().isEmpty())
-{
-    JOptionPane.showMessageDialog(rootPane, "Please Enter Model");
-}
-else if(e.getText().isEmpty())
-{
-    JOptionPane.showMessageDialog(rootPane, "Please Specify Color");
-}
-else if(f.getText().isEmpty())
-{
-    JOptionPane.showMessageDialog(rootPane, "Please Fill the 'Size' field");
-}
-else if(g.getText().isEmpty())
-{
-    JOptionPane.showMessageDialog(rootPane, "Please Enter Quantity");
-}
-else{
-        try {
+        if (a.getText().isEmpty()) {
 
-            if (!SourceFile.exists()) {
-                System.out.println("Sourcefile doesn't Exist");
-            }
-            if (!myfile.exists()) {
-                myfile.createNewFile();
-            }
-            FileChannel source;
-            FileChannel destination;
-            source = new FileInputStream(SourceFile).getChannel();
-            destination = new FileOutputStream(myfile).getChannel();
-            if (destination != null && source != null) {
-                destination.transferFrom(source, 0, source.size());
-            }
-            if (source != null) {
-                source.close();
-            }
-            if (destination != null) {
-                destination.close();
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(AddModules.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            JOptionPane.showMessageDialog(rootPane, "Plz Enter Product Name");
+        } else if (c2.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Please Enter Prize");
+        } else if (d.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Please Enter Model");
+        } else if (e.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Please Specify Color");
+        } else if (f.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Please Fill the 'Size' field");
+        } else if (g.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Please Enter Quantity");
+        } else if (b.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(rootPane, "Please Select a Category");
+        } else if (flag_image == 0) {
+            JOptionPane.showMessageDialog(rootPane, "Please Choose an Image File");
+        } else {
 
-        try {
+            File SourceFile, myfile = null;
+            SourceFile = filechooser.getSelectedFile();
+            try {
+                if (!Files.exists(Paths.get("C:\\wamp\\www\\Eshopper\\images\\"))) {
 
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
-            System.err.println("ok");
-            Statement s = c.createStatement();
-            s.executeUpdate("insert into product(productname,category,prize,quantity,model,color,size,IMAGE)"
-                    + "values('" + a.getText() + "','" + b.getSelectedItem() + "'," + c2.getText() + ",'" + g.getText() + "','" + d.getText() + "','" + e.getText() + "','" + f.getText() + "','" + myfile.getName() + "');");
-            //return true;
+                    new File("C:\\wamp\\www\\Eshopper\\images\\").mkdir();
+                }
+                myfile = new File("C:\\wamp\\www\\Eshopper\\images\\" + a.getText() + ".jpg");
+                System.out.println(myfile.getPath());
+            } catch (NullPointerException ex) {
+                Logger.getLogger(AddModules.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
 
-        } catch (SQLException ex) {
-            System.out.println("not ok");
-            Logger.getLogger(AddModules.class.getName()).log(Level.SEVERE, null, ex);
-            // return false;
-        }
-}// TODO add your handling code here: // TODO add your handling code here:
+                if (!SourceFile.exists()) {
+                    System.out.println("Sourcefile doesn't Exist");
+                }
+                if (!myfile.exists()) {
+                    myfile.createNewFile();
+                }
+                FileChannel source;
+                FileChannel destination;
+                source = new FileInputStream(SourceFile).getChannel();
+                destination = new FileOutputStream(myfile).getChannel();
+                if (destination != null && source != null) {
+                    destination.transferFrom(source, 0, source.size());
+                }
+                if (source != null) {
+                    source.close();
+                }
+                if (destination != null) {
+                    destination.close();
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(AddModules.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            try {
+
+                Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
+                System.err.println("ok");
+                Statement s = c.createStatement();
+                s.executeUpdate("insert into product(productname,category,prize,quantity,model,color,size,IMAGE)"
+                        + "values('" + a.getText() + "','" + b.getSelectedItem() + "'," + c2.getText() + ",'" + g.getText() + "','" + d.getText() + "','" + e.getText() + "','" + f.getText() + "','" + myfile.getName() + "');");
+                //return true;
+
+            } catch (SQLException ex) {
+                System.out.println("not ok");
+                Logger.getLogger(AddModules.class.getName()).log(Level.SEVERE, null, ex);
+                // return false;
+            }
+        }// TODO add your handling code here: // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -370,7 +387,7 @@ else{
                 //---Resizing buffered image; return : bufferedimage -----
                 bi = Scalr.resize(bi, 350, 180);
                 pic.setIcon(new ImageIcon(bi));
-
+                flag_image = 1;
                 System.out.println(source);
 
             } catch (IOException e) {
