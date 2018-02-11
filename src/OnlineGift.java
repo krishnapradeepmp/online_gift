@@ -11,7 +11,7 @@ public class OnlineGift {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Login ll = new Login();
+        nLogin ll = new nLogin();
         ll.setVisible(true);
         // this.dispose();
     }
