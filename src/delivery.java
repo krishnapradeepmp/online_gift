@@ -55,7 +55,7 @@ public class delivery extends javax.swing.JFrame {
                 //de.addRow(v);
                 /*............image preview..*/
                 try {
-                    BufferedImage bi = ImageIO.read(new File("C:\\wamp\\www\\Eshopper\\images\\orders\\" + r.getString("id")+".jpg"));
+                    BufferedImage bi = ImageIO.read(new File("C:\\wamp\\www\\Eshopper\\images\\" + r.getString("IMAGE")));
 
                     System.out.println("Height : " + bi.getHeight());
                     System.out.println("Width : " + bi.getWidth());
@@ -206,6 +206,8 @@ public class delivery extends javax.swing.JFrame {
             }
         });
         getContentPane().add(o3, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 565, 131, 25));
+
+        image2.setText("jLabel4");
         getContentPane().add(image2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 400, 270));
 
         pack();
