@@ -55,7 +55,7 @@ public class delivery extends javax.swing.JFrame {
                 //de.addRow(v);
                 /*............image preview..*/
                 try {
-                    BufferedImage bi = ImageIO.read(new File("C:\\wamp\\www\\Eshopper\\images\\" + r.getString("IMAGE")));
+                    BufferedImage bi = ImageIO.read(new File("C:\\wamp\\www\\Eshopper\\images\\orders\\" + r.getString("id")+".jpg"));
 
                     System.out.println("Height : " + bi.getHeight());
                     System.out.println("Width : " + bi.getWidth());
@@ -107,9 +107,7 @@ public class delivery extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1020, 657));
         setMinimumSize(new java.awt.Dimension(1020, 657));
-        setPreferredSize(new java.awt.Dimension(1020, 657));
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -198,8 +196,6 @@ public class delivery extends javax.swing.JFrame {
         });
         getContentPane().add(o3);
         o3.setBounds(459, 565, 131, 25);
-
-        image2.setText("jLabel4");
         getContentPane().add(image2);
         image2.setBounds(30, 80, 400, 270);
 

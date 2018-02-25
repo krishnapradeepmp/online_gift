@@ -27,26 +27,8 @@ public class AddCategory extends javax.swing.JFrame {
      */
     public AddCategory() {
         initComponents();
-        try {
-
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
-            System.err.println("ok");
-            Statement s = c.createStatement();
-
-            ResultSet r = s.executeQuery("select * from category ");
-            DefaultTableModel de = (DefaultTableModel) cat.getModel();
-            while (r.next()) {
-                // System.out.println(r.getString("c1")+" "+r.getString("c2")+" "+r.getString("c3"));
-                Vector v = new Vector();
-                v.add(r.getString("category_name")); 
-                de.addRow(v);
-
-            }
-
-        } catch (SQLException ex) {
-            System.out.println("not ok");
-            Logger.getLogger(ViewModel.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        getCategory();
+        
     }
 
     /**
@@ -231,6 +213,9 @@ try {
             Statement s=c.createStatement();
             s.executeUpdate("insert into category(category_name)values('"+jTextField1.getText()+"');");
             JOptionPane.showMessageDialog(rootPane, "Category Added Successfully...");
+            removeItemsFromTable();
+            getCategory();
+            jTextField1.setText("");
            // return true;
            
             
@@ -253,6 +238,9 @@ try {
             Statement s=c.createStatement();
              s.executeUpdate("DELETE FROM category WHERE category_name=('"+jTextField1.getText()+"');");
             JOptionPane.showMessageDialog(rootPane, "Category Deleted Successfully...");
+            removeItemsFromTable();
+            getCategory();
+            jTextField1.setText("");
            // return true;
            
             
@@ -320,4 +308,35 @@ try {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    private void getCategory() {
+        try {
+
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
+            System.err.println("ok");
+            Statement s = c.createStatement();
+
+            ResultSet r = s.executeQuery("select * from category ");
+            DefaultTableModel de = (DefaultTableModel) cat.getModel();
+            while (r.next()) {
+                // System.out.println(r.getString("c1")+" "+r.getString("c2")+" "+r.getString("c3"));
+                Vector v = new Vector();
+                v.add(r.getString("category_name")); 
+                de.addRow(v);
+
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("not ok");
+            Logger.getLogger(ViewModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void removeItemsFromTable() {
+        DefaultTableModel de=(DefaultTableModel) cat.getModel();
+        while(cat.getRowCount()!=0)
+        {
+            de.removeRow(0);
+        }
+    }
 }

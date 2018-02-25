@@ -144,9 +144,7 @@ public class ModelDetails extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1100, 700));
         setMinimumSize(new java.awt.Dimension(1100, 700));
-        setPreferredSize(new java.awt.Dimension(1100, 700));
         getContentPane().setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -198,6 +196,11 @@ public class ModelDetails extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 102, 102));
         jButton1.setText("Update");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
         jButton1.setBounds(660, 550, 110, 30);
 
@@ -205,6 +208,11 @@ public class ModelDetails extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 102, 102));
         jButton2.setText("Delete");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2);
         jButton2.setBounds(500, 550, 110, 30);
 
@@ -253,6 +261,14 @@ public class ModelDetails extends javax.swing.JFrame {
     private void e1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_e1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField a1;
