@@ -163,7 +163,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Plain-Light-Blue-Background.jpg"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(1031, 749));
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(1, -7, 1030, 690);
+        jLabel1.setBounds(-140, -230, 1180, 920);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -197,7 +197,8 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+AddCategory ac = new AddCategory();
+        ac.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
     /**

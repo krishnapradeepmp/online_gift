@@ -72,9 +72,6 @@ public class AddModules extends javax.swing.JFrame {
     private void initComponents() {
 
         filechooser = new javax.swing.JFileChooser();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         g = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -93,92 +90,54 @@ public class AddModules extends javax.swing.JFrame {
         e = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         b = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
         pic = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 204));
-        jPanel1.setForeground(new java.awt.Color(0, 153, 204));
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("ADD MODELS");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(324, 324, 324)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(353, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
-
-        jPanel3.setBackground(new java.awt.Color(0, 153, 204));
-        jPanel3.setForeground(new java.awt.Color(0, 153, 204));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 47, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 501, 934, -1));
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 153, 204));
+        jLabel2.setForeground(new java.awt.Color(204, 255, 255));
         jLabel2.setText("QUANTITY");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 80, 23));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 80, 23));
 
         g.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gActionPerformed(evt);
             }
         });
-        getContentPane().add(g, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 110, 20));
+        getContentPane().add(g, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, 200, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 153, 204));
+        jLabel3.setForeground(new java.awt.Color(204, 255, 255));
         jLabel3.setText("PRODUCT NAME");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 130, 23));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 130, 23));
 
         a.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aActionPerformed(evt);
             }
         });
-        getContentPane().add(a, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 160, 20));
+        getContentPane().add(a, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 200, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 153, 204));
+        jLabel4.setForeground(new java.awt.Color(204, 255, 255));
         jLabel4.setText("CATEGORY");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 80, 23));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 80, 23));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 153, 204));
+        jLabel5.setForeground(new java.awt.Color(204, 255, 255));
         jLabel5.setText("PRICE");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 80, 23));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 80, 23));
 
         f.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fActionPerformed(evt);
             }
         });
-        getContentPane().add(f, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 110, 20));
+        getContentPane().add(f, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 200, 30));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 153, 204));
@@ -188,7 +147,7 @@ public class AddModules extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 460, 120, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 550, 120, -1));
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 0, 0));
@@ -214,51 +173,61 @@ public class AddModules extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 340, 210, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 340, 230, 40));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 153, 204));
+        jLabel6.setForeground(new java.awt.Color(204, 255, 255));
         jLabel6.setText("SIZE");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 70, 20));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 70, 20));
 
         c2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c2ActionPerformed(evt);
             }
         });
-        getContentPane().add(c2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 160, 20));
+        getContentPane().add(c2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 200, 30));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 153, 204));
+        jLabel7.setForeground(new java.awt.Color(204, 255, 255));
         jLabel7.setText("MODEL");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 70, 20));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 70, 20));
 
         d.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dActionPerformed(evt);
             }
         });
-        getContentPane().add(d, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 160, 20));
+        getContentPane().add(d, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 200, 30));
 
         e.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eActionPerformed(evt);
             }
         });
-        getContentPane().add(e, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 110, 20));
+        getContentPane().add(e, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 200, 30));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 153, 204));
+        jLabel8.setForeground(new java.awt.Color(204, 255, 255));
         jLabel8.setText("COLOR");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 70, 20));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 70, 20));
 
         b.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         b.setForeground(new java.awt.Color(0, 153, 204));
         b.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Category" }));
-        getContentPane().add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 150, -1));
+        b.setPreferredSize(new java.awt.Dimension(6, 20));
+        getContentPane().add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 200, 30));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel1.setText("ADD MODELS");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 190, 47));
 
         pic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/downloadd.png"))); // NOI18N
-        getContentPane().add(pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, 290, 220));
+        getContentPane().add(pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 90, 290, 220));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Plain-Light-Blue-Background.jpg"))); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -453,8 +422,7 @@ public class AddModules extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel pic;
     // End of variables declaration//GEN-END:variables
 }

@@ -124,8 +124,6 @@ public class ModelDetails extends javax.swing.JFrame {
     private void initComponents() {
 
         jFileChooser1 = new javax.swing.JFileChooser();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -143,103 +141,103 @@ public class ModelDetails extends javax.swing.JFrame {
         e1 = new javax.swing.JTextField();
         f1 = new javax.swing.JTextField();
         image = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel2.setBackground(new java.awt.Color(0, 153, 204));
-        jPanel2.setForeground(new java.awt.Color(0, 153, 204));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1030, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 51, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, -1));
-
-        jPanel3.setBackground(new java.awt.Color(0, 153, 204));
-        jPanel3.setForeground(new java.awt.Color(0, 153, 204));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1030, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 47, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 1030, -1));
+        setMaximumSize(new java.awt.Dimension(1100, 700));
+        setMinimumSize(new java.awt.Dimension(1100, 700));
+        setPreferredSize(new java.awt.Dimension(1100, 700));
+        getContentPane().setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Size");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 140, 30));
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(90, 440, 140, 30);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Prize");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 140, 30));
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(90, 260, 140, 30);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Product Name");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 140, 30));
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(90, 160, 140, 30);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Category");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 140, 30));
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(90, 210, 140, 30);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Quantity");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 140, 30));
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(90, 310, 140, 30);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Model");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 140, 30));
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(90, 360, 140, 30);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Color");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 140, 30));
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(90, 400, 140, 30);
 
         b1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b1ActionPerformed(evt);
             }
         });
-        getContentPane().add(b1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 150, -1));
-        getContentPane().add(g1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 90, -1));
+        getContentPane().add(b1);
+        b1.setBounds(240, 220, 180, 30);
+        getContentPane().add(g1);
+        g1.setBounds(240, 450, 180, 30);
 
         jButton1.setBackground(new java.awt.Color(0, 153, 153));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 102, 102));
         jButton1.setText("Update");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 560, 110, 30));
+        getContentPane().add(jButton1);
+        jButton1.setBounds(660, 550, 110, 30);
 
         jButton2.setBackground(new java.awt.Color(0, 153, 153));
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 102, 102));
         jButton2.setText("Delete");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 560, 110, 30));
+        getContentPane().add(jButton2);
+        jButton2.setBounds(500, 550, 110, 30);
 
         a1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a1ActionPerformed(evt);
             }
         });
-        getContentPane().add(a1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 150, -1));
-        getContentPane().add(c1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 90, -1));
-        getContentPane().add(d1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 150, -1));
-        getContentPane().add(e1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 150, -1));
-        getContentPane().add(f1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 150, -1));
+        getContentPane().add(a1);
+        a1.setBounds(240, 160, 180, 30);
+        getContentPane().add(c1);
+        c1.setBounds(240, 270, 100, 30);
+        getContentPane().add(d1);
+        d1.setBounds(240, 320, 180, 30);
 
-        image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mug.jpg"))); // NOI18N
-        getContentPane().add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 600, 440));
+        e1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                e1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(e1);
+        e1.setBounds(240, 360, 180, 30);
+        getContentPane().add(f1);
+        f1.setBounds(240, 400, 180, 30);
+        getContentPane().add(image);
+        image.setBounds(490, 60, 600, 440);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Plain-Light-Blue-Background.jpg"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(1100, 700));
+        jLabel1.setMinimumSize(new java.awt.Dimension(1100, 700));
+        jLabel1.setPreferredSize(new java.awt.Dimension(1100, 700));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 1100, 660);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -251,6 +249,10 @@ public class ModelDetails extends javax.swing.JFrame {
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_b1ActionPerformed
+
+    private void e1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_e1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField a1;
@@ -264,6 +266,7 @@ public class ModelDetails extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JFileChooser jFileChooser1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -271,7 +274,5 @@ public class ModelDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

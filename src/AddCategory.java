@@ -154,6 +154,11 @@ public class AddCategory extends javax.swing.JFrame {
             }
         ));
         cat.setColumnSelectionAllowed(true);
+        cat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                catMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(cat);
         cat.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
@@ -259,8 +264,16 @@ try {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void catMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catMouseClicked
+      DefaultTableModel model =(DefaultTableModel)cat.getModel();
+      int SelectedRowIndex=cat.getSelectedRow();
+      jTextField1.setText(model.getValueAt(SelectedRowIndex,0).toString());
+      
+// TODO add your handling code here:
+    }//GEN-LAST:event_catMouseClicked
+
     /**
-     * @param args the command line arguments
+     * @param  args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

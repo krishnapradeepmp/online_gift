@@ -84,9 +84,6 @@ public class delivery extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         ed3 = new javax.swing.JTextField();
         f3 = new javax.swing.JTextField();
@@ -106,109 +103,116 @@ public class delivery extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         o3 = new javax.swing.JTextField();
         image2 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel2.setBackground(new java.awt.Color(0, 153, 204));
-        jPanel2.setForeground(new java.awt.Color(0, 153, 204));
-
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("DELIVERY DETAILS");
-
-        jLabel4.setText("jLabel4");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel4)
-                .addGap(287, 287, 287)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(442, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jLabel4)
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, -1));
+        setMaximumSize(new java.awt.Dimension(1020, 657));
+        setMinimumSize(new java.awt.Dimension(1020, 657));
+        setPreferredSize(new java.awt.Dimension(1020, 657));
+        getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Delivery_Name");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 213, 127, 25));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(493, 213, 127, 25);
 
         ed3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ed3ActionPerformed(evt);
             }
         });
-        getContentPane().add(ed3, new org.netbeans.lib.awtextra.AbsoluteConstraints(779, 565, 131, 25));
-        getContentPane().add(f3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, 183, 98));
+        getContentPane().add(ed3);
+        ed3.setBounds(779, 565, 131, 25);
+        getContentPane().add(f3);
+        f3.setBounds(660, 310, 183, 98);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 102, 0));
         jButton1.setText("Pack");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 675, 103, 32));
+        getContentPane().add(jButton1);
+        jButton1.setBounds(610, 675, 103, 32);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 0, 0));
         jButton2.setText("Cancel");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 675, 103, 32));
+        getContentPane().add(jButton2);
+        jButton2.setBounds(756, 675, 103, 32);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Customer_ID");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 121, 127, 25));
-        getContentPane().add(a3, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 78, 98, 25));
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(493, 121, 127, 25);
+        getContentPane().add(a3);
+        a3.setBounds(663, 78, 98, 25);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("DELIVERY ADDRESS");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 166, 24));
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(490, 320, 166, 24);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Order_ID");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 76, 127, 25));
-        getContentPane().add(b3, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 123, 98, 25));
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(493, 76, 127, 25);
+        getContentPane().add(b3);
+        b3.setBounds(663, 123, 98, 25);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Quantity");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 166, 127, 25));
-        getContentPane().add(c3, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 168, 98, 25));
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(493, 166, 127, 25);
+        getContentPane().add(c3);
+        c3.setBounds(663, 168, 98, 25);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Exp.Delivery_Date");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 563, 127, 25));
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(623, 563, 127, 25);
 
         d3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d3ActionPerformed(evt);
             }
         });
-        getContentPane().add(d3, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 215, 271, 25));
+        getContentPane().add(d3);
+        d3.setBounds(663, 215, 271, 25);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Amount");
         jLabel9.setToolTipText("");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 127, 25));
-        getContentPane().add(e3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 260, 98, 25));
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(490, 260, 127, 25);
+        getContentPane().add(e3);
+        e3.setBounds(660, 260, 98, 25);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("Order Date");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 565, 127, 25));
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(306, 565, 127, 25);
 
         o3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 o3ActionPerformed(evt);
             }
         });
-        getContentPane().add(o3, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 565, 131, 25));
+        getContentPane().add(o3);
+        o3.setBounds(459, 565, 131, 25);
 
         image2.setText("jLabel4");
-        getContentPane().add(image2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 400, 270));
+        getContentPane().add(image2);
+        image2.setBounds(30, 80, 400, 270);
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("DELIVERY DETAILS");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(340, 10, 257, 47);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Plain-Light-Blue-Background.jpg"))); // NOI18N
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(0, 0, 1020, 660);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -239,15 +243,14 @@ public class delivery extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField o3;
     // End of variables declaration//GEN-END:variables
 }
