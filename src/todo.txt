@@ -1,0 +1,10 @@
+categories to one
+Models to one
+date filter in view orders
+date format in expected and other dates
+prevent edits in data tables
+edit and delete in model details
+add disable on category selection
+delete disable on new text enter
+check for existing item in categories
+

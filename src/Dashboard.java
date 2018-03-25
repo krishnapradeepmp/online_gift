@@ -1,15 +1,11 @@
 
 import java.awt.Color;
-import static java.awt.Color.green;
-
-
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author krishnapradeep
@@ -21,8 +17,8 @@ public class Dashboard extends javax.swing.JFrame {
      */
     public Dashboard() {
         initComponents();
-   jPanel2.setBackground(new Color(0,10,10,60));
-    jPanel1.setBackground(new Color(0,10,10,60));
+        jPanel2.setBackground(new Color(0, 10, 10, 60));
+        jPanel1.setBackground(new Color(0, 10, 10, 60));
     }
 
     /**
@@ -197,7 +193,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-AddCategory ac = new AddCategory();
+        AddCategory ac = new AddCategory();
         ac.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 

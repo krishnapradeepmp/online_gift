@@ -42,6 +42,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="ed3">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ed3ActionPerformed"/>
       </Events>
@@ -52,6 +55,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="f3">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="660" y="310" width="183" height="98"/>
@@ -104,6 +110,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="a3">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="663" y="78" width="98" height="25"/>
@@ -137,6 +146,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="b3">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="663" y="123" width="98" height="25"/>
@@ -157,6 +169,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="c3">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="663" y="168" width="98" height="25"/>
@@ -177,6 +192,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="d3">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="d3ActionPerformed"/>
       </Events>
@@ -201,6 +219,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="e3">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="660" y="260" width="98" height="25"/>
@@ -221,6 +242,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="o3">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="o3ActionPerformed"/>
       </Events>

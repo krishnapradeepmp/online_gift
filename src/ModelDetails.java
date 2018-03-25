@@ -32,7 +32,7 @@ public class ModelDetails extends javax.swing.JFrame {
     public ModelDetails(String id) {
         initComponents();
 
-/*category-listing code*/
+        /*category-listing code*/
         try {
 
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
@@ -71,9 +71,6 @@ public class ModelDetails extends javax.swing.JFrame {
             Logger.getLogger(ViewModel.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-
-
-
         try {
 
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
@@ -86,13 +83,13 @@ public class ModelDetails extends javax.swing.JFrame {
                 // System.out.println(r.getString("c1")+" "+r.getString("c2")+" "+r.getString("c3"));
 
                 a1.setText(r.getString("productname"));
-                 b1.setSelectedItem(r.getString("category"));
+                b1.setSelectedItem(r.getString("category"));
                 c1.setText(r.getString("prize"));
                 d1.setText(r.getString("quantity"));
                 e1.setText(r.getString("model"));
                 f1.setText(r.getString("color"));
                 g1.setText(r.getString("size"));
-               // de.addRow(v);
+                // de.addRow(v);
                 try {
                     BufferedImage bi = ImageIO.read(new File("C:\\wamp\\www\\Eshopper\\images\\" + r.getString("IMAGE")));
 

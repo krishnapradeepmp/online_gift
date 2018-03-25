@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -26,7 +25,6 @@ public class viewOrder extends javax.swing.JFrame {
      */
     public viewOrder() {
         initComponents();
-        
 
         try {
 
@@ -39,8 +37,8 @@ public class viewOrder extends javax.swing.JFrame {
             while (r.next()) {
                 // System.out.println(r.getString("c1")+" "+r.getString("c2")+" "+r.getString("c3"));
                 Vector v = new Vector();
-            
-                 v.add(r.getString("id"));
+
+                v.add(r.getString("id"));
                 v.add(r.getString("odate"));
                 v.add(r.getString("expecteddate"));
                 v.add(r.getString("quantity"));
@@ -69,8 +67,6 @@ public class viewOrder extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -115,14 +111,6 @@ public class viewOrder extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(80, 220, 890, 260);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "From date" }));
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(660, 140, 80, 30);
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "To date" }));
-        getContentPane().add(jComboBox2);
-        jComboBox2.setBounds(800, 140, 84, 30);
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("ORDER LIST");
@@ -145,7 +133,7 @@ public class viewOrder extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-         delivery d1 = new delivery(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+        delivery d1 = new delivery(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
         d1.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jTable1MouseClicked
@@ -187,8 +175,6 @@ public class viewOrder extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

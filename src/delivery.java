@@ -7,12 +7,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.table.DefaultTableModel;
 import org.imgscalr.Scalr;
 
 /*
@@ -28,6 +26,7 @@ public class delivery extends javax.swing.JFrame {
 
     /**
      * Creates new form delivery
+     * @param id
      */
     public delivery(String id) {
         initComponents();
@@ -55,7 +54,7 @@ public class delivery extends javax.swing.JFrame {
                 //de.addRow(v);
                 /*............image preview..*/
                 try {
-                    BufferedImage bi = ImageIO.read(new File("C:\\wamp\\www\\Eshopper\\images\\orders\\" + r.getString("id")+".jpg"));
+                    BufferedImage bi = ImageIO.read(new File("C:\\wamp\\www\\Eshopper\\images\\orders\\" + r.getString("id") + ".jpg"));
 
                     System.out.println("Height : " + bi.getHeight());
                     System.out.println("Width : " + bi.getWidth());
@@ -115,6 +114,7 @@ public class delivery extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(493, 213, 127, 25);
 
+        ed3.setEditable(false);
         ed3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ed3ActionPerformed(evt);
@@ -122,6 +122,8 @@ public class delivery extends javax.swing.JFrame {
         });
         getContentPane().add(ed3);
         ed3.setBounds(779, 565, 131, 25);
+
+        f3.setEditable(false);
         getContentPane().add(f3);
         f3.setBounds(660, 310, 183, 98);
 
@@ -141,6 +143,8 @@ public class delivery extends javax.swing.JFrame {
         jLabel3.setText("Customer_ID");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(493, 121, 127, 25);
+
+        a3.setEditable(false);
         getContentPane().add(a3);
         a3.setBounds(663, 78, 98, 25);
 
@@ -153,6 +157,8 @@ public class delivery extends javax.swing.JFrame {
         jLabel6.setText("Order_ID");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(493, 76, 127, 25);
+
+        b3.setEditable(false);
         getContentPane().add(b3);
         b3.setBounds(663, 123, 98, 25);
 
@@ -160,6 +166,8 @@ public class delivery extends javax.swing.JFrame {
         jLabel7.setText("Quantity");
         getContentPane().add(jLabel7);
         jLabel7.setBounds(493, 166, 127, 25);
+
+        c3.setEditable(false);
         getContentPane().add(c3);
         c3.setBounds(663, 168, 98, 25);
 
@@ -168,6 +176,7 @@ public class delivery extends javax.swing.JFrame {
         getContentPane().add(jLabel8);
         jLabel8.setBounds(623, 563, 127, 25);
 
+        d3.setEditable(false);
         d3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d3ActionPerformed(evt);
@@ -181,6 +190,8 @@ public class delivery extends javax.swing.JFrame {
         jLabel9.setToolTipText("");
         getContentPane().add(jLabel9);
         jLabel9.setBounds(490, 260, 127, 25);
+
+        e3.setEditable(false);
         getContentPane().add(e3);
         e3.setBounds(660, 260, 98, 25);
 
@@ -189,6 +200,7 @@ public class delivery extends javax.swing.JFrame {
         getContentPane().add(jLabel10);
         jLabel10.setBounds(306, 565, 127, 25);
 
+        o3.setEditable(false);
         o3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 o3ActionPerformed(evt);

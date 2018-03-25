@@ -36,7 +36,7 @@ public class ViewModel extends javax.swing.JFrame {
             while (r.next()) {
                 // System.out.println(r.getString("c1")+" "+r.getString("c2")+" "+r.getString("c3"));
                 Vector v = new Vector();
-                v.add(r.getString("id")); 
+                v.add(r.getString("id"));
                 v.add(r.getString("productname"));
                 v.add(r.getString("category"));
                 v.add(r.getString("prize"));
@@ -202,7 +202,7 @@ public class ViewModel extends javax.swing.JFrame {
     private void jTable11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable11MouseClicked
         ModelDetails m = new ModelDetails(jTable11.getValueAt(jTable11.getSelectedRow(), 0).toString());
         m.setVisible(true);
-      
+
 // TODO add your handling code here:
     }//GEN-LAST:event_jTable11MouseClicked
 

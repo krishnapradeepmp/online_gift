@@ -14,7 +14,6 @@ import javax.swing.JOptionPane;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author krishnapradeep
@@ -26,9 +25,8 @@ public class nLogin extends javax.swing.JFrame {
      */
     public nLogin() {
         initComponents();
-        jPanel1.setBackground(new Color(0,0,0,60)) ; 
+        jPanel1.setBackground(new Color(0, 0, 0, 60));
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -109,7 +107,6 @@ public class nLogin extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(100, 50, 410, 250);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\krishnapradeep\\Desktop\\bgimg\\wallpapers-for--plain-light-turquoise-background-25.jpeg")); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(600, 450));
         jLabel1.setMinimumSize(new java.awt.Dimension(600, 450));
         jLabel1.setPreferredSize(new java.awt.Dimension(600, 450));
@@ -147,7 +144,7 @@ public class nLogin extends javax.swing.JFrame {
 
         } catch (SQLException ex) {
             Logger.getLogger(nLogin.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 

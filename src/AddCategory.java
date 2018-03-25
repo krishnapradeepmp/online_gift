@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -28,7 +27,7 @@ public class AddCategory extends javax.swing.JFrame {
     public AddCategory() {
         initComponents();
         getCategory();
-        
+
     }
 
     /**
@@ -206,19 +205,18 @@ public class AddCategory extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-try {
-         
-            Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
+        try {
+
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
             System.err.println("ok");
-            Statement s=c.createStatement();
-            s.executeUpdate("insert into category(category_name)values('"+jTextField1.getText()+"');");
+            Statement s = c.createStatement();
+            s.executeUpdate("insert into category(category_name)values('" + jTextField1.getText() + "');");
             JOptionPane.showMessageDialog(rootPane, "Category Added Successfully...");
             removeItemsFromTable();
             getCategory();
             jTextField1.setText("");
-           // return true;
-           
-            
+            // return true;
+
         } catch (SQLException ex) {
             System.out.println("not ok");
             Logger.getLogger(AddCategory.class.getName()).log(Level.SEVERE, null, ex);
@@ -231,19 +229,18 @@ try {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-try {
-         
-            Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
+        try {
+
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
             System.err.println("ok");
-            Statement s=c.createStatement();
-             s.executeUpdate("DELETE FROM category WHERE category_name=('"+jTextField1.getText()+"');");
+            Statement s = c.createStatement();
+            s.executeUpdate("DELETE FROM category WHERE category_name=('" + jTextField1.getText() + "');");
             JOptionPane.showMessageDialog(rootPane, "Category Deleted Successfully...");
             removeItemsFromTable();
             getCategory();
             jTextField1.setText("");
-           // return true;
-           
-            
+            // return true;
+
         } catch (SQLException ex) {
             System.out.println("not ok");
             Logger.getLogger(AddCategory.class.getName()).log(Level.SEVERE, null, ex);
@@ -253,15 +250,15 @@ try {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void catMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catMouseClicked
-      DefaultTableModel model =(DefaultTableModel)cat.getModel();
-      int SelectedRowIndex=cat.getSelectedRow();
-      jTextField1.setText(model.getValueAt(SelectedRowIndex,0).toString());
-      
+        DefaultTableModel model = (DefaultTableModel) cat.getModel();
+        int SelectedRowIndex = cat.getSelectedRow();
+        jTextField1.setText(model.getValueAt(SelectedRowIndex, 0).toString());
+
 // TODO add your handling code here:
     }//GEN-LAST:event_catMouseClicked
 
     /**
-     * @param  args the command line arguments
+     * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -321,7 +318,7 @@ try {
             while (r.next()) {
                 // System.out.println(r.getString("c1")+" "+r.getString("c2")+" "+r.getString("c3"));
                 Vector v = new Vector();
-                v.add(r.getString("category_name")); 
+                v.add(r.getString("category_name"));
                 de.addRow(v);
 
             }
@@ -333,9 +330,8 @@ try {
     }
 
     private void removeItemsFromTable() {
-        DefaultTableModel de=(DefaultTableModel) cat.getModel();
-        while(cat.getRowCount()!=0)
-        {
+        DefaultTableModel de = (DefaultTableModel) cat.getModel();
+        while (cat.getRowCount() != 0) {
             de.removeRow(0);
         }
     }
