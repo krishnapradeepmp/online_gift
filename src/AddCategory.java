@@ -81,7 +81,7 @@ public class AddCategory extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(357, 357, 357)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(406, Short.MAX_VALUE))
+                .addContainerGap(424, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,6 +95,11 @@ public class AddCategory extends javax.swing.JFrame {
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
+            }
+        });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
             }
         });
 
@@ -186,7 +191,7 @@ public class AddCategory extends javax.swing.JFrame {
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
                         .addGap(18, 18, 18)))
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -205,6 +210,18 @@ public class AddCategory extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     int n =cat.getRowCount();
+     int i;
+     
+        for(i=0;i<n;i++)
+        {
+           if(cat.getValueAt(i, 0).toString().equals(jTextField1.getText()))
+           {
+            JOptionPane.showMessageDialog(rootPane, "Category Already Exist...");
+            break;
+           }
+           else
+           {
         try {
 
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
@@ -221,6 +238,8 @@ public class AddCategory extends javax.swing.JFrame {
             System.out.println("not ok");
             Logger.getLogger(AddCategory.class.getName()).log(Level.SEVERE, null, ex);
             //return false;
+        }
+           }
         }
         // TODO add your handling code here:
         // TODO add your handling code here:
@@ -253,9 +272,15 @@ public class AddCategory extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) cat.getModel();
         int SelectedRowIndex = cat.getSelectedRow();
         jTextField1.setText(model.getValueAt(SelectedRowIndex, 0).toString());
-
+        jButton1.setEnabled(false);
+jButton3.setEnabled(true);
 // TODO add your handling code here:
     }//GEN-LAST:event_catMouseClicked
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+      jButton3.setEnabled(false); 
+      jButton1.setEnabled(true);// TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1KeyTyped
 
     /**
      * @param args the command line arguments
