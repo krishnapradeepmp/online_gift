@@ -210,41 +210,33 @@ public class AddCategory extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     int n =cat.getRowCount();
-     int i;
-     
-        for(i=0;i<n;i++)
-        {
-           if(cat.getValueAt(i, 0).toString().equals(jTextField1.getText()))
-           {
-            JOptionPane.showMessageDialog(rootPane, "Category Already Exist...");
-            break;
-           }
-           else
-           {
-        try {
+        int n = cat.getRowCount();
+        int i;
 
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
-            System.err.println("ok");
-            Statement s = c.createStatement();
-            s.executeUpdate("insert into category(category_name)values('" + jTextField1.getText() + "');");
-            JOptionPane.showMessageDialog(rootPane, "Category Added Successfully...");
-            removeItemsFromTable();
-            getCategory();
-            jTextField1.setText("");
-            // return true;
+        for (i = 0; i < n; i++) {
+            if (cat.getValueAt(i, 0).toString().equals(jTextField1.getText())) {
+                JOptionPane.showMessageDialog(rootPane, "Category Already Exist...");
+                break;
+            } else {
+                try {
 
-        } catch (SQLException ex) {
-            System.out.println("not ok");
-            Logger.getLogger(AddCategory.class.getName()).log(Level.SEVERE, null, ex);
-            //return false;
+                    Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinegift", "root", "");
+                    System.err.println("ok");
+                    Statement s = c.createStatement();
+                    s.executeUpdate("insert into category(category_name)values('" + jTextField1.getText() + "');");
+                    JOptionPane.showMessageDialog(rootPane, "Category Added Successfully...");
+                    removeItemsFromTable();
+                    getCategory();
+                    jTextField1.setText("");
+                    break;
+
+                } catch (SQLException ex) {
+                    System.out.println("not ok");
+                    Logger.getLogger(AddCategory.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
-           }
-        }
-        // TODO add your handling code here:
-        // TODO add your handling code here:
-        // TODO add your handling code here:
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -273,13 +265,13 @@ public class AddCategory extends javax.swing.JFrame {
         int SelectedRowIndex = cat.getSelectedRow();
         jTextField1.setText(model.getValueAt(SelectedRowIndex, 0).toString());
         jButton1.setEnabled(false);
-jButton3.setEnabled(true);
+        jButton3.setEnabled(true);
 // TODO add your handling code here:
     }//GEN-LAST:event_catMouseClicked
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
-      jButton3.setEnabled(false); 
-      jButton1.setEnabled(true);// TODO add your handling code here:
+        jButton3.setEnabled(false);
+        jButton1.setEnabled(true);// TODO add your handling code here:
     }//GEN-LAST:event_jTextField1KeyTyped
 
     /**

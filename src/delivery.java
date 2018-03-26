@@ -26,6 +26,7 @@ public class delivery extends javax.swing.JFrame {
 
     /**
      * Creates new form delivery
+     *
      * @param id
      */
     public delivery(String id) {
@@ -36,7 +37,10 @@ public class delivery extends javax.swing.JFrame {
             System.err.println("ok");
             Statement s = c.createStatement();
 
-            ResultSet r = s.executeQuery("SELECT orders.`id`, `odate`, `expecteddate`, `remarks`, `status`, `model_id`, `quantity`, `customer_id`, `amount`,daddress,delivery_name FROM `orders`,delivery WHERE delivery.order_id=orders.id AND orders.id=" + id);
+            ResultSet r = s.executeQuery("SELECT orders.`id`, DATE_FORMAT(orders.`odate`,'%d-%m-%Y' ) AS odate, DATE_FORMAT(orders.`expecteddate`,'%d-%m-%Y' ) AS expecteddate, `remarks`, `status`, `model_id`, `quantity`, `customer_id`, `amount`,daddress,delivery_name,custom,model_id FROM `orders`,delivery WHERE delivery.order_id=orders.id AND orders.id=" + id);
+
+            System.out.println("SELECT orders.`id`, DATE_FORMAT(orders.`odate`,'%d-%m-%Y' ) AS odate, DATE_FORMAT(orders.`expecteddate`,'%d-%m-%Y' ) AS expecteddate, `remarks`, `status`, `model_id`, `quantity`, `customer_id`, `amount`,daddress,delivery_name,custom,model_id FROM `orders`,delivery WHERE delivery.order_id=orders.id AND orders.id=" + id);
+
             // DefaultTableModel de = (DefaultTableModel) jTable1.getModel();
             while (r.next()) {
                 // System.out.println(r.getString("c1")+" "+r.getString("c2")+" "+r.getString("c3"));
@@ -53,16 +57,35 @@ public class delivery extends javax.swing.JFrame {
                 //v.add(r.getString("remarks"));
                 //de.addRow(v);
                 /*............image preview..*/
-                try {
-                    BufferedImage bi = ImageIO.read(new File("C:\\wamp\\www\\Eshopper\\images\\orders\\" + r.getString("id") + ".jpg"));
+                System.out.println(r.getString("custom"));
+                if (r.getString("custom") == null) {
 
-                    System.out.println("Height : " + bi.getHeight());
-                    System.out.println("Width : " + bi.getWidth());
-                    //---Resizing buffered image; return : bufferedimage -----
-                    bi = Scalr.resize(bi, 350, 180);
-                    image2.setIcon(new ImageIcon(bi));
+                    ResultSet r2 = s.executeQuery("SELECT * FROM `product` WHERE `id`=" + r.getString("model_id"));
+                    r2.next();
 
-                } catch (IOException e) {
+                    try {
+                        BufferedImage bi = ImageIO.read(new File("C:\\wamp\\www\\Eshopper\\images\\" + r2.getString("IMAGE")));
+
+                        System.out.println("Height : " + bi.getHeight());
+                        System.out.println("Width : " + bi.getWidth());
+                        //---Resizing buffered image; return : bufferedimage -----
+                        bi = Scalr.resize(bi, 350, 180);
+                        image2.setIcon(new ImageIcon(bi));
+
+                    } catch (IOException e) {
+                    }
+                } else {
+                    try {
+                        BufferedImage bi = ImageIO.read(new File("C:\\wamp\\www\\Eshopper\\photo_editor\\customs\\" + r.getString("custom")));
+
+                        System.out.println("Height : " + bi.getHeight());
+                        System.out.println("Width : " + bi.getWidth());
+                        //---Resizing buffered image; return : bufferedimage -----
+                        bi = Scalr.resize(bi, 350, 180);
+                        image2.setIcon(new ImageIcon(bi));
+
+                    } catch (IOException e) {
+                    }
                 }
 
             }

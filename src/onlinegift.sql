@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2018 at 08:30 AM
+-- Generation Time: Mar 26, 2018 at 09:18 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -19,6 +19,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `onlinegift`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL,
+  `item_ID` int(11) NOT NULL,
+  `QUANTITY` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `custom` varchar(150) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `item_ID`, `QUANTITY`, `customer_id`, `custom`) VALUES
+(15, 6, 1, 5, 'img-1522055775-100.png');
 
 -- --------------------------------------------------------
 
@@ -39,8 +60,7 @@ INSERT INTO `category` (`id`, `category_name`) VALUES
 (3, 'Clothing'),
 (4, 'Home and Kitchen'),
 (5, 'Mugs&Sippers'),
-(6, 'Electronics_accessories'),
-(7, 'uuu');
+(6, 'Electronics_accessories');
 
 -- --------------------------------------------------------
 
@@ -53,6 +73,21 @@ CREATE TABLE `customer` (
   `c_name` varchar(50) NOT NULL,
   `c_address` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`id`, `c_name`, `c_address`) VALUES
+(1, 'guest', 'guestAddress'),
+(2, 'guest', 'guestAddress'),
+(3, 'guest', 'guestAddress'),
+(4, 'guest', 'guestAddress'),
+(5, 'guest', 'guestAddress'),
+(6, 'banee', 'cgfjgjj'),
+(7, 'bill', 'billa'),
+(8, 'bill', 'billa'),
+(9, 'bb', 'bba');
 
 -- --------------------------------------------------------
 
@@ -72,7 +107,11 @@ CREATE TABLE `delivery` (
 --
 
 INSERT INTO `delivery` (`id`, `daddress`, `order_id`, `delivery_name`) VALUES
-(1, 'valncherry', 1, 'banee');
+(1, 'valncherry', 1, 'banee'),
+(3, 'pff', 2, 'nbmmn'),
+(5, 'sh', 3, 'sha'),
+(6, 'ss', 4, 'ssa'),
+(7, 'ss', 5, 'ssa');
 
 -- --------------------------------------------------------
 
@@ -101,22 +140,26 @@ INSERT INTO `login` (`username`, `password`, `role`) VALUES
 
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
-  `odate` datetime NOT NULL,
-  `expecteddate` datetime NOT NULL,
-  `remarks` varchar(50) NOT NULL,
-  `status` varchar(50) NOT NULL,
+  `odate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `expecteddate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `remarks` varchar(50) DEFAULT NULL,
+  `status` varchar(50) DEFAULT NULL,
   `model_id` int(20) NOT NULL,
   `quantity` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
-  `amount` double NOT NULL
+  `amount` double NOT NULL,
+  `custom` varchar(150) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `odate`, `expecteddate`, `remarks`, `status`, `model_id`, `quantity`, `customer_id`, `amount`) VALUES
-(1, '2017-12-27 00:00:00', '2017-12-31 00:00:00', 'urgent', 'packed', 1, 5, 2, 1000);
+INSERT INTO `orders` (`id`, `odate`, `expecteddate`, `remarks`, `status`, `model_id`, `quantity`, `customer_id`, `amount`, `custom`) VALUES
+(2, '2018-03-26 14:35:33', '2018-03-26 14:35:33', NULL, NULL, 7, 1, 6, 699, NULL),
+(3, '2018-03-26 14:40:04', '2018-03-26 14:40:04', NULL, NULL, 7, 1, 7, 699, NULL),
+(4, '2018-03-26 14:41:46', '2018-03-26 14:41:46', NULL, NULL, 6, 11, 9, 7689, 'img-1522055489-31.png'),
+(5, '2018-03-26 14:41:46', '2018-03-26 14:41:46', NULL, NULL, 6, 1, 9, 699, NULL);
 
 -- --------------------------------------------------------
 
@@ -146,8 +189,7 @@ INSERT INTO `product` (`id`, `productname`, `category`, `prize`, `quantity`, `mo
 (7, 'RealWhite Tshirt', 'Clothing', 699, 20, 'ts23', 'white', 42, 'RealWhite Tshirt.jpg'),
 (8, 'Vneck Tshirt', 'Clothing', 699, 20, 'ts24', 'white', 40, 'Vneck Tshirt.jpg'),
 (9, 'Tshirt', 'Clothing', 899, 5, 't55', 'white', 42, 'Tshirt.jpg'),
-(12, 'omega curved bottle', 'Mugs&Sippers', 199, 10, 'super sippers', 'metalic', 10, 'omega curved bottle.jpg'),
-(13, 'aaaa', 'Tea cup', 500, 10, 'pg', 'hjgvjhy', 2, 'aaaa.jpg');
+(12, 'omega curved bottle', 'Mugs&Sippers', 199, 10, 'super sippers', 'metalic', 10, 'omega curved bottle.jpg');
 
 -- --------------------------------------------------------
 
@@ -183,15 +225,31 @@ INSERT INTO `sub_category` (`id`, `cat_name`, `parent_ID`) VALUES
 (15, 'Clocks', 4),
 (16, 'Calender', 4),
 (17, 'Name_Plates', 4),
-(19, 'Name_Plates', 4),
 (20, 'Ceramic_Plates', 4),
 (21, 'Pen_Drives', 6),
-(22, 'Key_Chains', 6),
 (23, 'Mouse_Pads', 6);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wishlist`
+--
+
+CREATE TABLE `wishlist` (
+  `id` int(11) NOT NULL,
+  `item_ID` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `category`
@@ -230,29 +288,40 @@ ALTER TABLE `sub_category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `delivery`
 --
 ALTER TABLE `delivery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `product`
 --
@@ -263,6 +332,11 @@ ALTER TABLE `product`
 --
 ALTER TABLE `sub_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+--
+-- AUTO_INCREMENT for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
