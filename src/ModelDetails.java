@@ -53,7 +53,7 @@ public class ModelDetails extends javax.swing.JFrame {
                 v.add(r.getString("size"));
                 de.addRow(v);*/
 //                try {
-//                    BufferedImage bi = ImageIO.read(new File("C:\\wamp\\www\\Eshopper\\images\\" + r.getString("IMAGE")));
+//                    BufferedImage bi = ImageIO.read(new File(Server_Constants.SERVER_ENDPIONT+"\\images\\" + r.getString("IMAGE")));
 //
 //                    System.out.println("Height : " + bi.getHeight());
 //                    System.out.println("Width : " + bi.getWidth());
@@ -91,7 +91,7 @@ public class ModelDetails extends javax.swing.JFrame {
                 g1.setText(r.getString("size"));
                 // de.addRow(v);
                 try {
-                    BufferedImage bi = ImageIO.read(new File("C:\\wamp\\www\\Eshopper\\images\\" + r.getString("IMAGE")));
+                    BufferedImage bi = ImageIO.read(new File(Server_Constants.SERVER_ENDPIONT+"\\images\\" + r.getString("IMAGE")));
 
                     System.out.println("Height : " + bi.getHeight());
                     System.out.println("Width : " + bi.getWidth());

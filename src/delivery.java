@@ -64,7 +64,7 @@ public class delivery extends javax.swing.JFrame {
                     r2.next();
 
                     try {
-                        BufferedImage bi = ImageIO.read(new File("C:\\wamp\\www\\Eshopper\\images\\" + r2.getString("IMAGE")));
+                        BufferedImage bi = ImageIO.read(new File(Server_Constants.SERVER_ENDPIONT+"\\images\\" + r2.getString("IMAGE")));
 
                         System.out.println("Height : " + bi.getHeight());
                         System.out.println("Width : " + bi.getWidth());
@@ -76,7 +76,8 @@ public class delivery extends javax.swing.JFrame {
                     }
                 } else {
                     try {
-                        BufferedImage bi = ImageIO.read(new File("C:\\wamp\\www\\Eshopper\\photo_editor\\customs\\" + r.getString("custom")));
+                        System.out.println(Server_Constants.SERVER_ENDPIONT+"\\picture_editor\\customs\\" + r.getString("custom"));
+                        BufferedImage bi = ImageIO.read(new File(Server_Constants.SERVER_ENDPIONT+"\\picture_editor\\customs\\" + r.getString("custom")));
 
                         System.out.println("Height : " + bi.getHeight());
                         System.out.println("Width : " + bi.getWidth());

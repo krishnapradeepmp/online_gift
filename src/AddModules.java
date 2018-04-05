@@ -267,11 +267,11 @@ public class AddModules extends javax.swing.JFrame {
             File SourceFile, myfile = null;
             SourceFile = filechooser.getSelectedFile();
             try {
-                if (!Files.exists(Paths.get("C:\\wamp\\www\\Eshopper\\images\\"))) {
+                if (!Files.exists(Paths.get(Server_Constants.SERVER_ENDPIONT+"\\images\\"))) {
 
-                    new File("C:\\wamp\\www\\Eshopper\\images\\").mkdir();
+                    new File(Server_Constants.SERVER_ENDPIONT+"\\images\\").mkdir();
                 }
-                myfile = new File("C:\\wamp\\www\\Eshopper\\images\\" + a.getText() + ".jpg");
+                myfile = new File(Server_Constants.SERVER_ENDPIONT+"\\images\\" + a.getText() + ".jpg");
                 System.out.println(myfile.getPath());
             } catch (NullPointerException ex) {
                 Logger.getLogger(AddModules.class.getName()).log(Level.SEVERE, null, ex);
